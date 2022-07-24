@@ -1,1 +1,29 @@
+//Fibo numbers Recursion -> DP
+Lecture number 1 from striver
 
+
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int fib(int n, vector<int> &dp){
+if(n<=1)
+return n;
+if(dp[n] != -1)
+return dp[n];
+return dp[n] = fib(n-1,dp) + fib(n-2,dp);
+}
+
+int main(){
+ int n;
+ cin>>n;
+ vector<int> dp(n+1,-1);
+ cout<<fib(n,dp);
+    return 0;
+}
+
+1. To  make a dp[n+1]
+2. Whatever is the answer to the subproblem store that to the given dp[n] because there is no need to recalculate the same result which was calculated earlier!
+This step number 2 is also called as memoization
+3. Check if the subproblem is solved previously i,e 
+if(dp[n] != -1)
+return dp[n];
